@@ -131,7 +131,11 @@ def upload():
                 features = node.feature.split(',')
                 lemma = features[6] if len(features) > 6 and features[6] != '*' else surface
 
-                if filter_nonwords and (not is_word(surface) or surface == '・'):
+                # If filter_nonwords: skip tokens not purely Japanese/word characters
+                if filter_nonwords and (
+                    not re.fullmatch(r"[\w\u3040-\u30ff\u4e00-\u9fff]+", surface)
+                    or surface == "・"
+                ):
                     node = node.next
                     continue
 
