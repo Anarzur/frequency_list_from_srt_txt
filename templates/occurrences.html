@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Occurrences of "{{ word }}"</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Occurrences of “{{ word }}”</h1>
+
+  {% for filename, items in occurrences.items() %}
+    <h2>{{ filename }}</h2>
+    <ul>
+      {% for sub in items %}
+        <li>
+          {% if sub.start and sub.end %}
+            <strong>[{{ sub.start }} → {{ sub.end }}]</strong>:
+          {% endif %}
+          {{ sub.content }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+
+  <hr>
+  <a href="{{ url_for('upload') }}">← Back to Upload</a>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vocabulary List</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Vocabulary Frequency</h1>
+  <p>
+    Ignored parentheses: <strong>{{ 'Yes' if ignore_paren else 'No' }}</strong> |
+    Filtered non-words: <strong>{{ 'Yes' if filter_nonwords else 'No' }}</strong> |
+    Excluded numbers/romaji: <strong>{{ 'Yes' if filter_num_romaji else 'No' }}</strong>
+  </p>
+  <p>
+    Known words filtered out: <strong>{{ known_count }}</strong> |
+    New words shown: <strong>{{ new_count }}</strong>
+  </p>
+
+  <ul>
+    {% for word, count in vocabulary %}
+      <li>
+        <a class="word-link" href="{{ url_for('show_occurrences', word=word) }}">{{ word }}</a>
+        ({{ count }})
+      </li>
+    {% endfor %}
+  </ul>
+
+  <hr>
+  <a href="{{ url_for('upload') }}">← Back to Upload</a>
+</body>
+</html>

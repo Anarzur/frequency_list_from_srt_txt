@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload Files</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Upload Japanese Subtitles/Text &amp; Known Vocabulary</h1>
+
+  <form method="post" enctype="multipart/form-data">
+    <!-- Subtitle/Text input -->
+    <label><strong>Choose .srt or .txt files:</strong></label><br>
+    <input type="file" name="sub_files" multiple accept=".srt,.txt" required><br><br>
+
+    <!-- Optional JSON input -->
+    <label><strong>Optional: Upload JSON of known words:</strong></label><br>
+    <input type="file" name="json_file" accept=".json"><br><br>
+
+    <!-- Toggles -->
+    <label>
+      <input type="checkbox" name="ignore_paren">
+      Ignore text in parentheses
+    </label><br>
+    <label>
+      <input type="checkbox" name="filter_nonwords">
+      Filter out non-word tokens
+    </label><br>
+    <label>
+      <input type="checkbox" name="filter_num_romaji">
+      Exclude numbers and romaji
+    </label><br><br>
+
+    <button class="btn-primary" type="submit">Process</button>
+  </form>
+
+  <!-- Instructions below button -->
+  <section class="instructions">
+    <h2>Instructions</h2>
+    <ol>
+      <li>Select one or more Japanese <code>.srt</code> or <code>.txt</code> files to process.</li>
+      <li>(Optional) Upload a JSON file containing words you already know so they will be excluded from the results.</li>
+      <li>Check “Ignore text in parentheses” to strip out any <code>(…)</code> content before tokenization.</li>
+      <li>Check “Filter out non-word tokens” to exclude pure punctuation or symbols from the vocabulary.</li>
+      <li>Check “Exclude numbers and romaji” to skip tokens composed entirely of ASCII letters or digits.</li>
+      <li>Click “Process” to generate a frequency list of all new words.</li>
+      <li>After processing, click any word in the list to view every sentence (or subtitle line) where it appears.</li>
+    </ol>
+  </section>
+
+  <h2>Need Japanese subtitle files? Download free .srt files from:</h2>
+  <a class="word-link" href="https://kitsunekko.net/dirlist.php?dir=subtitles%2Fjapanese%2F" target="_blank">
+    kitsunekko.net/japanese subtitles
+  </a>
+</body>
+</html>

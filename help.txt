@@ -1,0 +1,37 @@
+press ⌃C to quit run server
+
+
+Subtitle Vocabulary Web App – Quick Start Guide
+-----------------------------------------------
+
+1. Open Terminal and go to the project folder:
+   cd /path/to/subtitle_vocab_app
+
+2. Activate the virtual environment:
+   source .venv/bin/activate
+
+3. (Only once) Install Python packages:
+   python -m pip install --upgrade pip
+   python -m pip install -r requirements.txt
+
+4. Launch the Flask server:
+   python app.py
+
+5. In your web browser, open:
+   http://127.0.0.1:5000
+
+6. On the upload page:
+   • Click “Choose File” and select one or more *.srt files.
+   • (Optional) Check “Ignore text in parentheses” to strip out (…) cues.
+   • (Optional) Check “Filter out non-word tokens” to remove pure punctuation.
+   • Click “Process”.
+
+7. After processing, you’ll see a list of vocabulary words and their counts.
+   • Click any word to view all subtitle lines where it appears, grouped by filename.
+
+8. To stop the server:
+   • Go back to your terminal and press ⌃C
+
+9. To restart later, repeat steps 2 and 4.
+
+Enjoy exploring your Japanese subtitle vocabulary!
