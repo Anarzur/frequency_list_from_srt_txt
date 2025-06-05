@@ -131,7 +131,7 @@ def upload():
                 features = node.feature.split(',')
                 lemma = features[6] if len(features) > 6 and features[6] != '*' else surface
 
-                if filter_nonwords and not is_word(surface):
+                if filter_nonwords and (not is_word(surface) or surface == '・'):
                     node = node.next
                     continue
 
