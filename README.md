@@ -10,12 +10,11 @@ A Flask web app that parses Japanese `.srt` or `.txt` subtitle files (and option
 
 ## Installation
 1.	Clone the repository to your local machine and navigate into the project folder.
-2.	Create and activate a Python virtual environment:
-•	Run in the terminal
+2.	In the terminal create and activate a Python virtual environment:
 On macOS/Linux
   ```sh
   python3 -m venv .venv
-	source .venv/bin/activate
+  source .venv/bin/activate
   ```
 On Windows
   ```sh
@@ -28,7 +27,7 @@ On Windows
   ```
 
 ## Usage
-	1.	With your environment activated, start the Flask server by running
+1.	With your environment activated, start the Flask server by running
   ```sh
   python app.py
   ```
